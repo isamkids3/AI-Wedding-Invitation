@@ -1,0 +1,15 @@
+export const WEDDING = {
+  groomName: "Ilya",
+  brideName: "Alyaa",
+  fullTitle: "Ilya & Alyaa",
+  date: "Saturday, 25th July 2026",
+  dateISO: "2026-07-25T16:00:00",
+  ceremony: "4:00 PM",
+  venue: "DeRoses Events",
+  venueAddress: "F-02-01 Conezion IOI RESORT CITY, 62502 Putrajaya, Wilayah Persekutuan Putrajaya",
+  mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.4755293775434!2d101.7208485!3d2.9654707000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdcb3b84cf584f%3A0x2fcd9aec8a7ddb98!2sDeRoses%20Events!5e0!3m2!1sen!2smy!4v1777097784654!5m2!1sen!2smy",
+  wazeUrl: "https://ul.waze.com/ul?place=ChIJT1jPhDvLzTERmNt9iuyazS8&ll=2.96547070%2C101.72084850&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
+  googleMapsUrl: "https://maps.app.goo.gl/7CSwXRo8Y1wsjMwx8",
+  couplePhotoUrl: "/images/couple.jpg",
+  musicUrl: "/songs/testsong.mp3",
+}
