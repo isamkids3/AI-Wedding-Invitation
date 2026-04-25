@@ -32,31 +32,22 @@ export default function AddToCalendar() {
     }
     
     const icsContent = generateICS(event)
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
+    const url = window.URL.createObjectURL(blob)
     
-    // Check if user is on iOS
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    const link = document.createElement('a')
+    link.href = url
+    link.setAttribute('download', 'wedding.ics')
+    link.target = '_blank' // Opens in a new tab
+    document.body.appendChild(link)
     
-    if (isIOS) {
-      // iOS (including in-app browsers like IG/FB) handles data URIs natively by opening the Calendar app
-      window.location.assign(`data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`)
-    } else {
-      // Android and Desktop use standard Blob downloads
-      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
-      const url = window.URL.createObjectURL(blob)
-      
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', 'wedding.ics')
-      document.body.appendChild(link)
-      
-      link.click()
-      
-      // Clean up
-      document.body.removeChild(link)
-      setTimeout(() => {
-        window.URL.revokeObjectURL(url)
-      }, 100)
-    }
+    link.click()
+    
+    // Clean up
+    document.body.removeChild(link)
+    setTimeout(() => {
+      window.URL.revokeObjectURL(url)
+    }, 100)
     
     setIsOpen(false)
   }
