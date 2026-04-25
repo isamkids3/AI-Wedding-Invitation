@@ -36,7 +36,7 @@ export async function submitRSVP(formData: FormData) {
     const email = formData.get("email") as string
     const attending = formData.get("attending") as string // "yes" or "no"
     const guestCountStr = formData.get("guestCount") as string
-    const dietary = formData.get("dietary") as string
+    const message = formData.get("message") as string
 
     if (!name || name.trim() === "") {
       return { success: false, error: "Name is required." }
@@ -58,7 +58,7 @@ export async function submitRSVP(formData: FormData) {
       email: attending === "yes" ? email : "N/A",
       attending,
       guestCount: attending === "yes" ? guestCountStr : 0,
-      dietary: attending === "yes" ? dietary : "N/A",
+      message: attending === "yes" ? message : "N/A",
     })
 
     if (!result.success) {

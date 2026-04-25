@@ -8,7 +8,7 @@ export async function appendRSVPRow(data: {
   email: string
   attending: string
   guestCount: string | number
-  dietary: string
+  message: string
 }) {
   try {
     const serviceAccountAuth = new JWT({
@@ -29,7 +29,7 @@ export async function appendRSVPRow(data: {
       Email: data.email,
       Attending: data.attending,
       GuestCount: data.guestCount.toString(),
-      Dietary: data.dietary || "None",
+      Message: data.message || "None",
     })
 
     return { success: true }

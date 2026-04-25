@@ -30,16 +30,24 @@ export default function AddToCalendar() {
       startTime: new Date(WEDDING.dateISO),
       endTime: new Date(new Date(WEDDING.dateISO).getTime() + 6 * 60 * 60 * 1000)
     }
+    
     const icsContent = generateICS(event)
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
+    const url = window.URL.createObjectURL(blob)
+    
     const link = document.createElement('a')
     link.href = url
-    link.download = 'wedding.ics'
+    link.setAttribute('download', 'wedding.ics')
     document.body.appendChild(link)
+    
     link.click()
+    
+    // Clean up
     document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+    setTimeout(() => {
+      window.URL.revokeObjectURL(url)
+    }, 100)
+    
     setIsOpen(false)
   }
 

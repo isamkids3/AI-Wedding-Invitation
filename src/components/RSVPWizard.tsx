@@ -22,7 +22,7 @@ export default function RSVPWizard() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [guestCount, setGuestCount] = useState(1)
-  const [dietary, setDietary] = useState("")
+  const [message, setMessage] = useState("")
 
   const nextStep = () => {
     setDirection(1)
@@ -56,7 +56,7 @@ export default function RSVPWizard() {
     formData.append("email", email)
     formData.append("attending", attending || "no")
     formData.append("guestCount", guestCount.toString())
-    formData.append("dietary", dietary)
+    formData.append("message", message)
 
     const res = await submitRSVP(formData)
     setLoading(false)
@@ -292,12 +292,12 @@ export default function RSVPWizard() {
                   </label>
                   <Textarea
                     placeholder="e.g. I can't wait to celebrate with you..."
-                    value={dietary}
-                    onChange={(e) => setDietary(e.target.value)}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     maxLength={300}
                     className="h-32 border-(--color-champagne-light) focus-visible:ring-(--color-champagne) resize-none"
                   />
-                  <p className="text-right text-xs text-(--color-muted) mt-2 font-montserrat">{dietary.length}/300</p>
+                  <p className="text-right text-xs text-(--color-muted) mt-2 font-montserrat">{message.length}/300</p>
                 </div>
 
                 <div className="mt-auto flex justify-between pt-8">
