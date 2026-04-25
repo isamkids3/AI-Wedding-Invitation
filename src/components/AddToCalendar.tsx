@@ -22,33 +22,9 @@ export default function AddToCalendar() {
   }, [])
 
   const handleAppleOrOutlook = () => {
-    // 6 hours for wedding placeholder duration
-    const event = {
-      title: WEDDING.fullTitle + " Wedding",
-      description: "Join us in celebrating our wedding!",
-      location: WEDDING.venue + ", " + WEDDING.venueAddress,
-      startTime: new Date(WEDDING.dateISO),
-      endTime: new Date(new Date(WEDDING.dateISO).getTime() + 6 * 60 * 60 * 1000)
-    }
-    
-    const icsContent = generateICS(event)
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
-    const url = window.URL.createObjectURL(blob)
-    
-    const link = document.createElement('a')
-    link.href = url
-    link.setAttribute('download', 'wedding.ics')
-    link.target = '_blank' // Opens in a new tab
-    document.body.appendChild(link)
-    
-    link.click()
-    
-    // Clean up
-    document.body.removeChild(link)
-    setTimeout(() => {
-      window.URL.revokeObjectURL(url)
-    }, 100)
-    
+    // Navigate to the API route which serves the .ics file directly.
+    // This is the most bulletproof method for in-app browsers like Telegram.
+    window.open('/api/calendar', '_blank')
     setIsOpen(false)
   }
 
