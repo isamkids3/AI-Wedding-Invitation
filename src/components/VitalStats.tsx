@@ -34,12 +34,8 @@ export default function VitalStats() {
       <SectionReveal className="w-full max-w-6xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full">
           {items.map((item, idx) => (
-            <motion.div 
+            <div 
               key={idx} 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.2, duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
               className="bg-white p-10 md:p-14 flex flex-col items-center text-center rounded-t-full rounded-b-[40px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-(--color-champagne)/20 group relative overflow-hidden"
             >
               {/* Subtle top decoration inside card */}
@@ -55,7 +51,7 @@ export default function VitalStats() {
               <h3 className="font-playfair text-2xl font-semibold md:text-3xl mb-4 text-(--color-deep)">{item.title}</h3>
               <p className="font-montserrat text-sm md:text-base text-(--color-muted) mb-1 font-medium tracking-wide">{item.value}</p>
               {item.subValue && <p className="font-montserrat text-[10px] md:text-xs text-(--color-champagne) tracking-widest uppercase mt-4">{item.subValue}</p>}
-            </motion.div>
+            </div>
           ))}
         </div>
       </SectionReveal>

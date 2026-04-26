@@ -119,7 +119,7 @@ export default function Overlay({ onOpen }: { onOpen: () => void }) {
             >
               <button
                 onClick={handleOpen}
-                className="mt-6 md:mt-8 px-10 py-4 rounded-full border border-(--color-champagne) text-(--color-champagne) hover:text-white hover:bg-(--color-champagne)/30 transition-all duration-500 flex items-center gap-3 group font-playfair italic text-xl shadow-[0_0_20px_rgba(201,169,110,0.1)] hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
+                className="mt-1 sm:mt-3 md:mt-5 px-5 py-2.5 sm:px-6 sm:py-3 md:px-10 md:py-4 rounded-full border border-(--color-champagne) text-(--color-champagne) hover:text-white hover:bg-(--color-champagne)/30 transition-all duration-500 flex items-center gap-2 md:gap-3 group font-playfair italic text-base sm:text-lg md:text-xl shadow-[0_0_20px_rgba(201,169,110,0.1)] hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
               >
                 Open Invitation 
                 <span className="group-hover:translate-x-2 transition-transform">→</span>
