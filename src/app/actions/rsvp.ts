@@ -37,6 +37,14 @@ export async function submitRSVP(formData: FormData) {
     const attending = formData.get("attending") as string // "yes" or "no"
     const guestCountStr = formData.get("guestCount") as string
     const message = formData.get("message") as string
+    const honeypot = formData.get("website_url") as string
+
+    // Honeypot Check (Anti-Spam)
+    if (honeypot && honeypot.trim() !== "") {
+      // Bot detected! Silently reject but return success so the bot doesn't retry
+      console.warn(`[Anti-Spam] Bot blocked via honeypot. IP: ${ip}`)
+      return { success: true }
+    }
 
     if (!name || name.trim() === "") {
       return { success: false, error: "Name is required." }

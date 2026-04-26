@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Cinzel+Decorative:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
 @theme {
+  --font-ballet: "Ballet", cursive;
+  --font-cinzel: "Cinzel Decorative", serif;
   --color-ivory: #FAF7F2;
   --color-cream: #F2EDE4;
   --color-champagne: #C9A96E;
