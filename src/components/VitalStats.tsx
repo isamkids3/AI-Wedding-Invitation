@@ -36,7 +36,12 @@ export default function VitalStats() {
           {items.map((item, idx) => (
             <div 
               key={idx} 
-              className="bg-white p-10 md:p-14 flex flex-col items-center text-center rounded-t-full rounded-b-[40px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-(--color-champagne)/20 group relative overflow-hidden"
+              onClick={() => {
+                if (item.title === "Where") {
+                  document.getElementById("map-section")?.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`bg-white p-10 md:p-14 flex flex-col items-center text-center rounded-t-full rounded-b-[40px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-(--color-champagne)/20 group relative overflow-hidden ${item.title === "Where" ? "cursor-pointer" : ""}`}
             >
               {/* Subtle top decoration inside card */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 border-b border-(--color-champagne)/20 rounded-full -translate-y-1/2" />

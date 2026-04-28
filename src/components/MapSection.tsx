@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 
 export default function MapSection() {
   return (
-    <section className="py-24 px-6 bg-(--color-ivory) w-full flex flex-col items-center relative overflow-hidden">
+    <section id="map-section" className="py-24 px-6 bg-(--color-ivory) w-full flex flex-col items-center relative overflow-hidden">
       
 
 
