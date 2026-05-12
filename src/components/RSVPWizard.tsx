@@ -237,14 +237,14 @@ export default function RSVPWizard() {
                     </div>
 
                     {/* Honeypot field - visually hidden, bots will fill it */}
-                    <input 
-                      type="text" 
-                      name="website_url" 
-                      value={websiteUrl} 
-                      onChange={(e) => setWebsiteUrl(e.target.value)} 
-                      className="opacity-0 absolute -z-10 h-0 w-0" 
-                      tabIndex={-1} 
-                      autoComplete="off" 
+                    <input
+                      type="text"
+                      name="website_url"
+                      value={websiteUrl}
+                      onChange={(e) => setWebsiteUrl(e.target.value)}
+                      className="opacity-0 absolute -z-10 h-0 w-0"
+                      tabIndex={-1}
+                      autoComplete="off"
                     />
 
                     {attending === "yes" && (
@@ -310,10 +310,10 @@ export default function RSVPWizard() {
                 >
                   <div className="flex-1">
                     <label className="block font-montserrat text-sm font-medium text-(--color-deep) mb-2">
-                      Anything you want to say to the bride & groom?
+                      Leave your wishes for the newlyweds
                     </label>
                     <Textarea
-                      placeholder="e.g. I can't wait to celebrate with you..."
+                      placeholder="e.g. All the best for your big day!"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       maxLength={300}
