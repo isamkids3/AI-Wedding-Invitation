@@ -264,21 +264,15 @@ export default function RSVPWizard() {
                           <label className="block font-montserrat text-sm font-medium text-(--color-deep) mb-2">
                             How many seats shall we reserve?
                           </label>
-                          <div className="flex items-center space-x-4 bg-(--color-ivory) w-fit rounded-full p-1 border border-(--color-champagne)/20">
-                            <button
-                              onClick={() => setGuestCount(Math.max(1, guestCount - 1))}
-                              className="w-10 h-10 rounded-full flex items-center justify-center text-(--color-champagne) hover:bg-white hover:shadow-sm transition-all"
-                            >
-                              <Minus className="w-4 h-4" />
-                            </button>
-                            <span className="font-playfair text-xl w-8 text-center text-(--color-deep)">{guestCount}</span>
-                            <button
-                              onClick={() => setGuestCount(Math.min(10, guestCount + 1))}
-                              className="w-10 h-10 rounded-full flex items-center justify-center text-(--color-champagne) hover:bg-white hover:shadow-sm transition-all"
-                            >
-                              <Plus className="w-4 h-4" />
-                            </button>
-                          </div>
+                          <select
+                            value={guestCount}
+                            onChange={(e) => setGuestCount(Number(e.target.value))}
+                            className="w-full border border-(--color-champagne-light) focus-visible:ring-(--color-champagne) rounded-xl h-12 px-3 bg-transparent text-(--color-deep) font-montserrat outline-none appearance-none cursor-pointer"
+                            style={{ backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}
+                          >
+                            <option value={1}>1 seat</option>
+                            <option value={2}>2 seats</option>
+                          </select>
                         </div>
                       </>
                     )}
