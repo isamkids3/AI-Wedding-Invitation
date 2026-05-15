@@ -3,7 +3,7 @@ export const WEDDING = {
   brideName: "Alyaa",
   fullTitle: "Ilya & Alyaa",
   date: "Saturday, 25th July 2026",
-  dateISO: "2026-07-25T16:00:00",
+  dateISO: "2026-07-25T11:00:00+08:00",
   ceremony: "11:00 AM - 3:00 PM",
   venue: "DeRoses Events",
   venueAddress: "F-02-01 Conezion IOI RESORT CITY, 62502 Putrajaya, Wilayah Persekutuan Putrajaya",

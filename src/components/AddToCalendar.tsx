@@ -37,8 +37,9 @@ export default function AddToCalendar() {
   const handleGoogleCalendar = () => {
     // 20260815T080000Z
     const startTimeStr = new Date(WEDDING.dateISO).toISOString().replace(/-|:|\.\d\d\d/g, "")
-    const endTimeStr = new Date(new Date(WEDDING.dateISO).getTime() + 6 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "")
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(WEDDING.fullTitle + " Wedding")}&dates=${startTimeStr}/${endTimeStr}&details=Join%20us%21&location=${encodeURIComponent(WEDDING.venue + ", " + WEDDING.venueAddress)}`
+    const endTimeStr = new Date(new Date(WEDDING.dateISO).getTime() + 4 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "")
+    const description = `We are overjoyed to invite you to celebrate our wedding!\n\nVenue: ${WEDDING.venue}\nTime: ${WEDDING.ceremony}\n\nWe can't wait to share this special day with you!`
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(WEDDING.fullTitle + " Wedding")}&dates=${startTimeStr}/${endTimeStr}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(WEDDING.venue + ", " + WEDDING.venueAddress)}`
     window.open(url, '_blank', 'noopener,noreferrer')
     setIsOpen(false)
   }
