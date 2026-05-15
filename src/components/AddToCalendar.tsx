@@ -22,9 +22,15 @@ export default function AddToCalendar() {
   }, [])
 
   const handleAppleOrOutlook = () => {
-    // Navigate to the API route which serves the .ics file directly.
-    // This is the most bulletproof method for in-app browsers like Telegram.
-    window.open('/api/calendar', '_blank')
+    // Create a dynamic link to download on the same page
+    // This provides a cleaner experience on Apple devices (native popup) without opening empty tabs
+    const link = document.createElement('a')
+    link.href = '/api/calendar'
+    // The download attribute suggests saving the file
+    link.download = 'wedding.ics'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
     setIsOpen(false)
   }
 
