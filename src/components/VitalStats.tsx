@@ -5,8 +5,8 @@ import { WEDDING } from "@/lib/constants"
 import SectionReveal from "./SectionReveal"
 import { motion } from "framer-motion"
 
-export default function VitalStats() {
-  const items = [
+export default function VitalStats({ showOnlyWhere = false }: { showOnlyWhere?: boolean }) {
+  const allItems = [
     {
       icon: <Calendar className="w-8 h-8 md:w-10 md:h-10 text-(--color-champagne)" strokeWidth={1} />,
       title: "When",
@@ -27,12 +27,12 @@ export default function VitalStats() {
     },
   ]
 
+  const items = showOnlyWhere ? allItems.filter(item => item.title === "Where") : allItems
+
   return (
-    <section className="py-32 px-6 relative w-full flex justify-center bg-(--color-ivory) overflow-hidden">
-
-
+    <section className={`px-6 relative w-full flex justify-center bg-(--color-ivory) overflow-hidden ${showOnlyWhere ? "pt-20 md:pt-24 pb-12 md:pb-16" : "py-32"}`}>
       <SectionReveal className="w-full max-w-6xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 w-full">
+        <div className={`w-full ${showOnlyWhere ? "flex justify-center" : "grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"}`}>
           {items.map((item, idx) => (
             <div 
               key={idx} 
@@ -41,7 +41,7 @@ export default function VitalStats() {
                   document.getElementById("map-section")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className={`bg-white p-10 md:p-14 flex flex-col items-center text-center rounded-t-full rounded-b-[40px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-(--color-champagne)/20 group relative overflow-hidden ${item.title === "Where" ? "cursor-pointer" : ""}`}
+              className={`bg-white p-10 md:p-14 flex flex-col items-center text-center rounded-t-full rounded-b-[40px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-(--color-champagne)/20 group relative overflow-hidden ${item.title === "Where" ? "cursor-pointer" : ""} ${showOnlyWhere ? "w-full max-w-md" : ""}`}
             >
               {/* Subtle top decoration inside card */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 border-b border-(--color-champagne)/20 rounded-full -translate-y-1/2" />

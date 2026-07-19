@@ -12,4 +12,10 @@ export const WEDDING = {
   googleMapsUrl: "https://maps.app.goo.gl/7CSwXRo8Y1wsjMwx8",
   couplePhotoUrl: "/images/couple.jpg",
   musicUrl: "/songs/testsong1.mp3",
+  parkingVideoUrl: "/media/parking.mp4",
+  hallMapImageUrl: "/media/hall_map.png",
+  parkingInfo: {
+    zone: "Basement UG, Zone D (K23)",
+    directions: "Look for the DeRoses flags located near the lift lobby in Basement UG for convenient access.",
+  },
 }
